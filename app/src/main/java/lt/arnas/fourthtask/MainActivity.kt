@@ -1,5 +1,6 @@
 package lt.arnas.fourthtask
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -43,5 +44,12 @@ class MainActivity : AppCompatActivity() {
             this, android.R.layout.simple_expandable_list_item_1, array02
         )
         textListView.adapter = adapter
+
+        val openIntent = Intent(this, SecondActivity::class.java)
+
+        textListView.setOnItemClickListener { adapterView, view, position, id ->
+            if(position == 0)
+            startActivity(openIntent)
+        }
     }
 }
